@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+        <div class="card">
+          <div class="card-header text-center">
+            <h1 class="mb-1">Basic Calculator</h1>
+          </div>
+          <div class="card-body">
+            <form action="{{ url_for('predict') }}" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control" name="a" placeholder="First number" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="b" placeholder="Second number" required>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="operation" required>
+                  <option value="">Select operation</option>
+                  <option value="add">Add</option>
+                  <option value="subtract">Subtract</option>
+                  <option value="multiply">Multiply</option>
+                  <option value="divide">Divide</option>
+                  <option value="power">Power</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+            </form>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          {{ prediction_text }}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
